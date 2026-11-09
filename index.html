@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="JTBC 매각 공고에 따른 CJ의 인수 가능성을 IP 이전·규제·재무·시나리오별로 정리한 브리핑">
+<meta property="og:title" content="CJ의 JTBC 인수 가능성">
+<meta property="og:description" content="JTBC 매각 공고에 따른 CJ의 인수 가능성을 IP 이전·규제·재무·시나리오별로 정리한 브리핑">
+<meta property="og:type" content="article">
+<title>CJ의 JTBC 인수 가능성</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* Layout: same single-column briefing as the 중앙일보 page; 티빙 지분 bar is the visual anchor, numbered perspectives, scenario table */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --fg:#1b2430; --muted:#5b6675; --line:#d6dce3;
+  --cj:#1f6f6b; --cjsoft:#d7ebe8; --sll:#c58a3a; --etc:#c3cbd5; --warnsoft:#f6ead7;
+  --accent:#1f6f6b;
+  --display:"Nanum Myeongjo", "Noto Serif KR", serif;
+  --body:"IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12171d; --surface:#1a2129; --fg:#e4e9ef; --muted:#9aa5b2; --line:#2c3541;
+  --cj:#4fb3ab; --cjsoft:#1e3533; --sll:#d9a45c; --etc:#3a4552; --warnsoft:#3a2f20; --accent:#4fb3ab; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12171d; --surface:#1a2129; --fg:#e4e9ef; --muted:#9aa5b2; --line:#2c3541;
+  --cj:#4fb3ab; --cjsoft:#1e3533; --sll:#d9a45c; --etc:#3a4552; --warnsoft:#3a2f20; --accent:#4fb3ab; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.7}
+.wrap{max-width:720px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:40px}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;font-weight:600}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(28px,6vw,40px);line-height:1.25;margin:8px 0 16px;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.35;margin:0;text-wrap:balance}
+.premise{margin:0 0 16px;padding:10px 14px;border-left:3px solid var(--accent);background:var(--surface);font-size:15px;color:var(--fg)}
+.premise b{color:var(--accent)}
+.lede{font-size:18px;margin:0;max-width:62ch}
+.lede b{color:var(--accent)}
+.meta{font-size:13px;color:var(--muted);margin-top:12px}
+.stake{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.bar{display:flex;height:40px;border-radius:6px;overflow:hidden}
+.bar span{display:block;height:100%}
+.legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 16px;font-size:14px}
+.legend div{display:flex;gap:8px;align-items:baseline;min-width:0}
+.sw{width:10px;height:10px;border-radius:2px;flex:none;transform:translateY(1px)}
+.legend .v{margin-left:auto;font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--muted);white-space:nowrap}
+.camps{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;gap:12px;flex-wrap:wrap}
+.camps strong{color:var(--fg);font-family:var(--mono)}
+.sched{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;font-size:13px}
+.sched div{border-top:2px solid var(--line);padding-top:8px;min-width:0}
+.sched div:first-child{border-top-color:var(--accent)}
+.sched b{display:block;font-family:var(--mono);font-weight:500;color:var(--fg);font-variant-numeric:tabular-nums}
+.sched span{color:var(--muted)}
+.sec{display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 16px}
+.num{font-family:var(--mono);font-size:14px;color:var(--accent);padding-top:5px}
+.sec ul{margin:12px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
+.sec li::marker{color:var(--muted)}
+.sec .body{min-width:0}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--cjsoft);color:var(--cj);font-weight:600;margin-left:6px;vertical-align:2px}
+.tag.warn{background:var(--warnsoft);color:var(--sll)}
+.tbl{overflow-x:auto;margin-top:12px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:480px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;color:var(--muted);font-weight:600}
+td.p{white-space:nowrap;font-weight:600}
+td.p.hi{color:var(--accent)}
+.bottom{background:var(--cjsoft);border-radius:10px;padding:20px 22px}
+.bottom p{margin:0;font-size:17px}
+a.src{color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a.src:hover{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:460px){.sec{grid-template-columns:1fr}.num{padding-top:0}.legend{grid-template-columns:1fr}.sched{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">디지털트리니티 제이스 · 2026.11.09</div>
+    <h1>JTBC 매각, 이번에도 CJ일까</h1>
+    <p class="premise"><b>11월 9일</b> JTBC가 공개경쟁입찰 방식의 매각 공고를 냈다는 언론사 속보가 나왔습니다. 이 분석은 공고된 일정대로 매각이 진행된다는 것을 전제로 합니다.</p>
+    <p class="lede">CJ는 유력 후보 중 하나지만 <b>중앙일보 때만큼 확률이 높지는 않습니다.</b> 핵심 IP가 이미 SLL중앙으로 넘어가 JTBC 법인의 매력이 줄었습니다. CJ가 실제로 원하는 것은 <b>JTBC보다 SLL중앙과 그 안의 티빙 지분</b>일 가능성이 큽니다.</p>
+    <div class="meta">회생계획 인가 전 M&amp;A · 공개경쟁입찰 · 제3자 배정 유상증자 · 매각 주관 EY한영 · 현재 공식 거론된 인수 후보 없음</div>
+  </header>
+
+  <section class="stake" aria-label="매각 일정">
+    <div class="eyebrow">매각 일정</div>
+    <div class="sched">
+      <div><b>12.04</b><span>인수의향서 마감</span></div>
+      <div><b>12.07–01.08</b><span>예비실사</span></div>
+      <div><b>01.15</b><span>본입찰</span></div>
+      <div><b>1월 중</b><span>우선협상대상자 선정</span></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="num">01</div>
+    <div class="body">
+      <h2>IP는 이미 SLL에 있다<span class="tag warn">핵심 정정</span></h2>
+      <ul>
+        <li>JTBC는 2022년 손실을 줄이려고 <a class="src" target="_blank" rel="noopener noreferrer" href="https://www.thescoop.co.kr/news/articleView.html?idxno=310704">‘아는 형님’ 등 IP 279건을 SLL중앙에 433억 원에 넘겼습니다</a>.</li>
+        <li>드라마는 원래 SLL(옛 JTBC스튜디오)이 제작해서 IP도 SLL에 쌓여 있습니다.</li>
+        <li>JTBC는 일부 예능 IP를 되사와 <a class="src" target="_blank" rel="noopener noreferrer" href="https://www.journalist.or.kr/m/m_article.html?no=61725">‘아는 형님’, ‘냉장고를 부탁해’ 권리를 100% 보유하고 있다고 밝혔습니다</a>. 하지만 남은 IP 라이브러리의 규모는 크지 않습니다.</li>
+        <li>결국 JTBC 법인에 남은 핵심 자산은 채널(편성·송출권), 보도국, 광고 영업, 스포츠 중계권입니다. 콘텐츠 기업이라기보다 <b>방송 플랫폼</b>에 가깝습니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="stake" aria-label="티빙 지분 구조">
+    <div class="eyebrow">티빙 지분 구조 · 2026년 6월 기준</div>
+    <div class="bar" role="img" aria-label="CJ ENM 48.85%, SLL중앙 12.75%, 기타 38.40%">
+      <span style="width:48.85%;background:var(--cj)"></span>
+      <span style="width:12.75%;background:var(--sll)"></span>
+      <span style="width:38.40%;background:var(--etc)"></span>
+    </div>
+    <div class="legend">
+      <div><i class="sw" style="background:var(--cj)"></i>CJ ENM<span class="v">48.85%</span></div>
+      <div><i class="sw" style="background:var(--sll)"></i>SLL중앙<span class="v">12.75%</span></div>
+      <div><i class="sw" style="background:var(--etc)"></i>기타<span class="v">38.40%</span></div>
+    </div>
+    <div class="camps"><span>CJ ENM이 SLL중앙 보유분을 확보하면</span><span>단순 합산 <strong>61.60%</strong></span></div>
+  </section>
+
+  <section class="sec">
+    <div class="num">02</div>
+    <div class="body">
+      <h2>CJ가 노릴 진짜 타깃은 SLL중앙</h2>
+      <ul>
+        <li>SLL중앙은 드라마·예능 IP와 제작 역량에 더해 <a class="src" target="_blank" rel="noopener noreferrer" href="http://sateconomy.co.kr/news/view/1065592117411757">티빙 지분 12.75%와 전환사채까지 갖고 있습니다</a>. 유동성 확보를 위해 관련 자산 매각도 검토해 왔습니다.</li>
+        <li>CJ 입장에서는 SLL중앙(또는 그 티빙 지분)을 가져오는 쪽이 JTBC 인수보다 규제가 가볍고 콘텐츠 가치는 더 큽니다.</li>
+        <li>중앙일보 인수를 공동 출자로 나눈 것도 이후 콘텐츠 자산을 확보할 여력을 남겨두려는 전략이라는 해석이 나옵니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="num">03</div>
+    <div class="body">
+      <h2>그래도 JTBC를 원할 이유</h2>
+      <ul>
+        <li><b>보도 채널:</b> 중앙일보(신문)에 JTBC(방송 뉴스)가 더해지면 신문과 방송이 다시 한 진영으로 묶입니다.</li>
+        <li><b>편성권과 광고 인벤토리:</b> tvN과 JTBC는 비지상파 양대 채널입니다. 둘을 함께 쥐면 TV 광고 판매력이 크게 올라갑니다.</li>
+        <li><b>성공 경험:</b> CJ는 <a class="src" target="_blank" rel="noopener noreferrer" href="https://news.mtn.co.kr/news-detail/2026090109331465535">2009년 온미디어(OCN 등)를 인수해 채널 사업을 키운 경험</a>이 있습니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="num">04</div>
+    <div class="body">
+      <h2>규제 장벽이 신문보다 높다</h2>
+      <ul>
+        <li><a class="src" target="_blank" rel="noopener noreferrer" href="https://www.investchosun.com/site/data/html_dir/2026/11/04/2026110480200.html">대기업집단의 종편 지분 한도는 30%</a>로, 일간신문(50%)보다 엄격합니다. 단독 과반이 불가능해서 다시 컨소시엄을 꾸려야 합니다.</li>
+        <li>기존 최대주주 중앙홀딩스 지분도 25.01%였습니다. 나머지 지분이 분산되면 30% 안에서도 실질 경영권을 잡을 여지는 있습니다.</li>
+        <li>최대주주 변경에는 방송미디어통신위원회 승인이 필요합니다. JTBC는 재승인용 사업계획서도 6개월 안에 내야 합니다.</li>
+        <li>CJ가 중앙일보와 JTBC를 함께 쥐면 여론 집중 비판과 기업결합 심사 부담이 중앙일보 건보다 훨씬 커집니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="num">05</div>
+    <div class="body">
+      <h2>재무가 무겁다</h2>
+      <ul>
+        <li>회생채권은 7,000억 원을 넘을 것으로 예상되고, IOC 중계권 관련 채권만 2,000억 원 이상입니다.</li>
+        <li>올해 상반기 영업손실은 266억 원으로, 전년 동기 113억 원보다 커졌습니다.</li>
+        <li>IP가 빠진 상태에서 덩치는 크고 이익 창출력은 약해, 인수 가격보다 채무 변제와 운영 자금이 더 큰 부담입니다.</li>
+        <li>JTBC는 2011년 개국해 삼성과의 연결고리가 약하므로, 중앙일보 때의 범삼성가 명분도 작동하지 않습니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="num">06</div>
+    <div class="body">
+      <h2>시나리오별 판단</h2>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>시나리오</th><th>가능성</th><th>근거</th></tr></thead>
+          <tbody>
+            <tr><td>CJ는 JTBC 대신 SLL중앙 또는 그 티빙 지분 확보</td><td class="p hi">높음</td><td>IP·제작 역량·티빙 지배력이 모두 SLL 쪽에 있고, 종편 규제를 피할 수 있음</td></tr>
+            <tr><td>CJ가 전략적투자자로 참여한 컨소시엄이 JTBC 인수</td><td class="p">중간 이하</td><td>보도 채널과 광고 인벤토리는 매력적이지만 30% 한도, 승인, 채무 부담이 큼</td></tr>
+            <tr><td>CJ 불참, 다른 전략·재무적투자자 컨소시엄이 JTBC 인수</td><td class="p">중간</td><td>공개입찰이라 사모펀드 등이 들어올 여지가 있음. 중앙일보 본입찰에도 6곳이 참여함</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="num">07</div>
+    <div class="body">
+      <h2>확인할 신호<span class="tag">관전 포인트</span></h2>
+      <ul>
+        <li><b>12월 4일 인수의향서 명단:</b> CJ ENM이나 CJ㈜가 이름을 올리는지가 첫 신호입니다.</li>
+        <li><b>SLL중앙의 향방:</b> SLL중앙이나 그 티빙 지분이 별도 매물로 나오면, CJ의 우선순위가 그쪽일 가능성이 높습니다.</li>
+        <li><b>방미통위의 태도:</b> 대기업과 신문사의 종편 소유를 어떻게 볼지가 CJ의 참여 여부를 좌우합니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="num">08</div>
+    <div class="body">
+      <h2>광고시장 관점</h2>
+      <ul>
+        <li>CJ가 JTBC를 실제로 가져가면 tvN과 JTBC의 광고 판매가 한 그룹 아래로 모일 수 있습니다. TV 광고 단가와 패키지 협상력이 CJ 쪽으로 크게 쏠립니다.</li>
+        <li>CJ가 SLL중앙만 가져가면 채널 광고 시장보다 티빙 광고 인벤토리와 콘텐츠 PPL 쪽 협상 구도가 바뀝니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="bottom">
+    <p>IP가 SLL로 넘어간 지금, JTBC는 <b>채널과 보도국이 남은 방송 플랫폼</b>입니다. CJ에게 더 매력적인 패는 JTBC보다 <b>SLL중앙과 티빙 지분</b>이고, JTBC 인수전은 CJ가 아닌 컨소시엄과 경합할 가능성이 큽니다.</p>
+  </div>
+</div>
+</body>
+</html>
